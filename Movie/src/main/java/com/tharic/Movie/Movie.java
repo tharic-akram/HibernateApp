@@ -6,18 +6,29 @@ public class Movie {
 	private String language;
 	private Integer releasedIn;
 	private Integer revenueInDollars;
-	
+	private Director director;
 	public Movie() {
 		super();
 	}
 	
 
-	public Movie(Integer movieId, String movieName, String language, Integer releasedIn, Integer revenueInDollars) {
+	public Movie(Integer movieId, String movieName, String language, Integer releasedIn, Integer revenueInDollars,Director de) {
 		this.movieId = movieId;
 		this.movieName = movieName;
 		this.language = language;
 		this.releasedIn = releasedIn;
 		this.revenueInDollars = revenueInDollars;
+		this.director=de;
+	}
+
+	
+	public Director getDirector() {
+		return director;
+	}
+
+
+	public void setDirector(Director director) {
+		this.director = director;
 	}
 
 

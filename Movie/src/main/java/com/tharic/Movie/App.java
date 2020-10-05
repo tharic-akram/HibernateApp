@@ -8,7 +8,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        Movie m=new Movie(1005, "Kuththu", "Tamil",2005, 100);
+    	Director d=new Director(101,"Gautham menon", 10000);
+        Movie m=new Movie(1006, "Achcham Enbadhu Madamayadaa", "Tamil",2018, 1100,d);
         MovieDAO dao=new MovieDAOImpl();
         dao.addMovie(m);
 //        dao.viewMovie("1004");

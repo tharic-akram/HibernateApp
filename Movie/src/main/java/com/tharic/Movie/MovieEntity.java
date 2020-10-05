@@ -1,8 +1,11 @@
 package com.tharic.Movie;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -19,6 +22,19 @@ public class MovieEntity {
 	private Integer releasedIn;
 	private Integer revenueInDollars;
 	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "directorId",unique = true)
+	private DirectorEntity directorEntity;
+	
+	
+
+	public DirectorEntity getDirectorEntity() {
+		return directorEntity;
+	}
+
+	public void setDirectorEntity(DirectorEntity directorEntity) {
+		this.directorEntity = directorEntity;
+	}
 
 	public Integer getMovieId() {
 		return movieId;

@@ -20,6 +20,8 @@ public class MovieDAOImpl implements MovieDAO {
 		movieEntity.setMovieName(m.getMovieName());
 		movieEntity.setReleasedIn(m.getReleasedIn());
 		movieEntity.setRevenueInDollars(m.getRevenueInDollars());
+		DirectorEntity directorEntity=new DirectorEntity(m.getDirector().getDirectorId(), m.getDirector().getDirectorName(), m.getDirector().getSalary());
+		movieEntity.setDirectorEntity(directorEntity);
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
 		session.persist(movieEntity);
