@@ -15,7 +15,7 @@ public class MovieDAOImpl implements MovieDAO {
 	public void addMovie(Movie m) {
 		// TODO Auto-generated method stub
 		MovieEntity movieEntity=new MovieEntity();
-		movieEntity.setMovieId(m.getMovieId());
+//		movieEntity.setMovieId(m.getMovieId());
 		movieEntity.setLanguage(m.getLanguage());
 		movieEntity.setMovieName(m.getMovieName());
 		movieEntity.setReleasedIn(m.getReleasedIn());

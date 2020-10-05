@@ -1,25 +1,30 @@
 package com.tharic.Movie;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name = "movie_details")
+@GenericGenerator(name = "idgen",strategy = "increment")
 public class MovieEntity {
 	@Id
-	private String movieId;
+	@GeneratedValue(generator = "idgen")
+	private Integer movieId;
 	private String movieName;
 	private String language;
 	private Integer releasedIn;
 	private Integer revenueInDollars;
 	
 
-	public String getMovieId() {
+	public Integer getMovieId() {
 		return movieId;
 	}
 
-	public void setMovieId(String movieId) {
+	public void setMovieId(Integer movieId) {
 		this.movieId = movieId;
 	}
 

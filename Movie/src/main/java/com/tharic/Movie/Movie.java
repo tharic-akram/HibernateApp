@@ -1,7 +1,7 @@
 package com.tharic.Movie;
 
 public class Movie {
-	private String movieId;
+	private Integer movieId;
 	private String movieName;
 	private String language;
 	private Integer releasedIn;
@@ -12,7 +12,7 @@ public class Movie {
 	}
 	
 
-	public Movie(String movieId, String movieName, String language, Integer releasedIn, Integer revenueInDollars) {
+	public Movie(Integer movieId, String movieName, String language, Integer releasedIn, Integer revenueInDollars) {
 		this.movieId = movieId;
 		this.movieName = movieName;
 		this.language = language;
@@ -21,11 +21,11 @@ public class Movie {
 	}
 
 
-	public String getMovieId() {
+	public Integer getMovieId() {
 		return movieId;
 	}
 
-	public void setMovieId(String movieId) {
+	public void setMovieId(Integer movieId) {
 		this.movieId = movieId;
 	}
 
