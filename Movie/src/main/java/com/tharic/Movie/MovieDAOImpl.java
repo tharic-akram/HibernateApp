@@ -1,12 +1,10 @@
 package com.tharic.Movie;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.metamodel.Metadata;
-import org.hibernate.metamodel.MetadataSources;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 
 public class MovieDAOImpl implements MovieDAO {
 	
@@ -24,7 +22,8 @@ public class MovieDAOImpl implements MovieDAO {
 		movieEntity.setDirectorEntity(directorEntity);
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
-		session.persist(movieEntity);
+//		session.persist(directorEntity);
+		session.save(movieEntity);
 		tx.commit();
 		System.out.println(movieEntity.getMovieName()+" added successfully !!");
 		session.close();
@@ -67,5 +66,20 @@ public class MovieDAOImpl implements MovieDAO {
 		else {
 			System.out.println("Movie not found");
 		}
+	}
+
+	@Override
+	public void fetchMoviesbyRevenue(Integer dollars) {
+		// TODO Auto-generated method stub
+		Session session= HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		String query=" from MovieEntity m where m.revenueInDollars >= :dollars";
+		Query q=session.createQuery(query);
+		q.setParameter("dollars", dollars);
+		List<MovieEntity> list=q.list();
+		for(MovieEntity m:list) {
+			System.out.println(m.getMovieId() +" "+ m.getMovieName() +" ");
+		}
+		session.close();
 	}
 }

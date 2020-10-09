@@ -38,6 +38,10 @@ public class DirectorEntity {
 	public void setSalary(Integer salary) {
 		this.salary = salary;
 	}
+	public DirectorEntity() {
+		super();
+	}
+	
 	
 	
 }

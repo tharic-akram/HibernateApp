@@ -28,6 +28,10 @@ public class MovieEntity {
 	
 	
 
+	public MovieEntity() {
+		super();
+	}
+
 	public DirectorEntity getDirectorEntity() {
 		return directorEntity;
 	}
